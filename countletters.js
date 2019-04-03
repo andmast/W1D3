@@ -12,4 +12,4 @@ function countLetters (str) {
   return result;
 }
 
-console.log(countLetters("lighthous in the house"));
+console.log(countLetters("lighthouse in the house"));
