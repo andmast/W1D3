@@ -31,16 +31,21 @@ var data = {
   }
 };
 
-function mostFollows(data) {
-  var mostFollow = {
-    name: "",
-    numOfFollows: 0
-  };
+function mostfollows(data){
+  var sortable = [];
+  var result = "";
   for (var x in data) {
-    if (data[x]["follows"].length > mostFollow["numOfFollows"]) {
-      mostFollow["name"] = data[x]["name"];
-      mostFollow["numOfFollows"] = data[x]["follows"].length
+    sortable.push([x,data[x].name,data[x].follows.length]);
+    // sortable["name"] = data[x].name;
+    // sortable["#ofFollows"]= data[x].follows.length;
     }
-  }
-  return mostFollow;
+    sortable.sort(function(a, b) {
+      return a[2] - b[2];
+  });
+    var key = sortable[sortable.length-1][0];
+    var name = sortable[sortable.length-1][1]
+    var numOf = sortable[sortable.length-1][2]
+   result = "Key: " + key + " Name: " + name + " #ofFollows: " + numOf;
+  return result;
 }
+console.log(mostfollows(data));
